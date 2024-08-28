@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES6",                  // Alvo de compilação: ECMAScript 6
+    "module": "commonjs",             // Sistema de módulos CommonJS (compatível com Node.js)
+    "strict": true,                   // Ativa todas as verificações de tipo estritas
+    "esModuleInterop": true,          // Facilita a interoperabilidade entre ES Modules e CommonJS
+    "skipLibCheck": true,             // Ignora a verificação de tipos de arquivos de declaração
+    "forceConsistentCasingInFileNames": true, // Exige consistência de maiúsculas e minúsculas nos nomes dos arquivos
+    "outDir": "./dist",               // Diretório de saída dos arquivos compilados
+    "rootDir": "./src",               // Diretório raiz dos arquivos de origem
+    "resolveJsonModule": true,        // Permite a importação de arquivos JSON como módulos
+    "noImplicitAny": true,            // Evita o uso de `any` implícito
+    "strictNullChecks": true,         // Garante verificações estritas de null e undefined
+    "noUnusedLocals": true,           // Reporta variáveis locais não utilizadas
+    "noUnusedParameters": true,       // Reporta parâmetros de função não utilizados
+    "noImplicitReturns": true,        // Reporta código que não retorna explicitamente
+    "noFallthroughCasesInSwitch": true // Reporta casos em switch sem break
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules"]
+}
