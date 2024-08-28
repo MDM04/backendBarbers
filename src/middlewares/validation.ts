@@ -23,7 +23,7 @@ export const validateSignUp = [
 
 // Validação para login
 export const validateLogin = [
-  body('username').notEmpty().withMessage('Usuário é obrigatório'),
+  body('email').notEmpty().withMessage('Usuário é obrigatório'),
   body('password').notEmpty().withMessage('Senha é obrigatória'),
 
   (req: Request, res: Response, next: NextFunction) => {

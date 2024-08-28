@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import { Schema, Document, model } from 'mongoose';
 
 export interface IClient extends Document {
   firstName: string;
@@ -20,4 +20,4 @@ const ClientSchema: Schema = new Schema({
   password: { type: String, required: true }
 });
 
-export default mongoose.model<IClient>('Client', ClientSchema);
+export const User = model<IClient>('User', ClientSchema);

@@ -1,5 +1,5 @@
 import { Request, Response,  } from 'express';
-import Client from '../../models/SignUp';
+import {User} from '../../models/user';
 import bcrypt from 'bcryptjs';
 
 export const signUpClient = async (req: Request, res: Response) => {
@@ -7,7 +7,7 @@ export const signUpClient = async (req: Request, res: Response) => {
 
   try {
     // Verificar se o email ou o usuário já existe
-    const existingClient = await Client.findOne({ $or: [{ email }, { username }] });
+    const existingClient = await User.findOne({ email:email});
     if (existingClient) {
       return res.status(400).json({ message: 'Email ou nome de usuário já em uso.' });
     }
@@ -16,7 +16,7 @@ export const signUpClient = async (req: Request, res: Response) => {
     const hashedPassword = await bcrypt.hash(password, 12);
 
     // Criar novo cliente
-    const newClient = new Client({
+    const newClient = new User({
       firstName,
       lastName,
       phone,

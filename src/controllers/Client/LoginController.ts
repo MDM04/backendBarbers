@@ -1,18 +1,22 @@
 import { Request, Response } from 'express';
-import Login from '../../models/LoginModel';
+import { User } from '../../../src/models/user';
+import bcrypt from 'bcryptjs';
+
 
 export const LoginUser = async (req: Request, res: Response): Promise<void> => {
-  const { username, password } = req.body;
+  const { email, password } = req.body;
 
   try {
-    const user = await Login.findOne({ username });
+    const user = await User.findOne({ email });
 
     if (!user) {
       res.status(401).json({ success: false, message: 'Usuário não encontrado.' });
       return;
     }
 
-    if (user.password !== password) {
+    const passwordCorrect = bcrypt.compareSync(password, user.password);
+
+    if (!passwordCorrect) {
       res.status(401).json({ success: false, message: 'Senha incorreta.' });
       return;
     }
