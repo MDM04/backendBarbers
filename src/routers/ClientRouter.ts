@@ -4,7 +4,7 @@ import { signUpClient } from '../controllers/Client/SignUpController';
 import { validateLogin, validateSignUp } from '../middlewares/validation';
 import { LoginUser } from '../controllers/Client/LoginController';
 import { Products } from '../controllers/Client/ProductController';
-import { Barbers } from '../controllers/Client/BarbersController';
+// import { Barbers } from '../controllers/Client/BarbersController';
 
 const router = express.Router();
 
@@ -19,10 +19,10 @@ router.put('/products', Products);
 router.post('/products', Products);
 router.delete('/products', Products);
 
-router.get('/barbers', Barbers);
-router.put('/barbers', Barbers);
-router.post('/barbers', Barbers);
-router.delete('/barbers', Barbers);
+// router.get('/barbers', Barbers);
+// router.put('/barbers', Barbers);
+// router.post('/barbers', Barbers);
+// router.delete('/barbers', Barbers);
 
 
 
